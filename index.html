@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shadab | AI Bio Portfolio</title>
+<style>
+body{margin:0;font-family:Arial, sans-serif;background:#f8fafc;color:#0f172a;scroll-behavior:smooth}
+header{padding:60px 20px;text-align:center;background:#0f172a;color:white}
+section{padding:40px 20px;max-width:900px;margin:auto}
+h2{color:#1e293b}
+.card{background:white;padding:20px;margin:15px 0;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+.progress{background:#e2e8f0;border-radius:10px;overflow:hidden;margin:10px 0}
+.progress div{height:10px;background:#22c55e}
+.btn{display:inline-block;margin-top:10px;padding:8px 12px;background:#22c55e;color:white;text-decoration:none;border-radius:6px}
+footer{text-align:center;padding:20px;background:#0f172a;color:white}
+.chatbox{position:fixed;bottom:20px;right:20px;width:300px;background:#1e293b;color:white;border-radius:10px;overflow:hidden}
+.chat-header{background:#22c55e;padding:10px;text-align:center}
+.chat-messages{height:200px;overflow-y:auto;padding:10px;font-size:14px}
+.chat-input{display:flex}
+.chat-input input{flex:1;border:none;padding:8px}
+.chat-input button{border:none;background:#22c55e;color:white;padding:8px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Hi, I am Shadab 👋</h1>
+  <p>AI & ML Learner | BSc Biology Student</p>
+  <p>I solve real-world problems using AI + Biology</p>
+</header>
+
+<section>
+  <h2>🔬 Featured Project</h2>
+  <div class="card">
+    <h3>Disease Prediction System</h3>
+    <p><b>Problem:</b> People ignore symptoms.</p>
+    <p><b>Solution:</b> Predict diseases using AI.</p>
+    <a href="#" class="btn">Live Demo</a>
+  </div>
+</section>
+
+<section>
+  <h2>📁 Projects</h2>
+  <div class="card">
+    Bio Quiz App 🧬<br>
+    <a href="#" class="btn">Live Demo</a>
+  </div>
+  <div class="card">
+    Calculator App<br>
+    <a href="#" class="btn">Live Demo</a>
+  </div>
+</section>
+
+<section>
+  <h2>📊 Skills</h2>
+  <div class="card">
+    <p>Python</p>
+    <div class="progress"><div style="width:80%"></div></div>
+    <p>HTML/CSS</p>
+    <div class="progress"><div style="width:70%"></div></div>
+    <p>AI/ML</p>
+    <div class="progress"><div style="width:50%"></div></div>
+  </div>
+</section>
+
+<section>
+  <h2>📞 Contact</h2>
+  <div class="card">
+    <p>Email: mdshadabashraf26@gmail.com</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Shadab | AI Bio Portfolio</p>
+</footer>
+
+<!-- AI CHATBOT -->
+<div class="chatbox">
+  <div class="chat-header">🤖 Ask Me</div>
+  <div class="chat-messages" id="chatMessages"></div>
+  <div class="chat-input">
+    <input type="text" id="chatInput" placeholder="Ask about me...">
+    <button onclick="sendChat()">Send</button>
+  </div>
+</div>
+
+<script>
+function sendChat(){
+  let input=document.getElementById("chatInput");
+  let msg=input.value.toLowerCase();
+  if(!msg) return;
+  addChat(msg,"user");
+
+  let reply="Ask about skills, projects, or contact 😊";
+  if(msg.includes("skills")) reply="Python, HTML, AI/ML";
+  else if(msg.includes("project")) reply="I built Bio Quiz & Disease Predictor";
+  else if(msg.includes("contact")) reply="Email: mdshadabashraf26@gmail.com";
+  else if(msg.includes("about")) reply="I am Shadab, AI + Bio student";
+
+  setTimeout(()=>addChat(reply,"bot"),500);
+  input.value="";
+}
+
+function addChat(text,type){
+  let div=document.createElement("div");
+  div.textContent=text;
+  div.style.margin="5px 0";
+  div.style.textAlign= type==="user"?"right":"left";
+  document.getElementById("chatMessages").appendChild(div);
+  div.scrollIntoView();
+}
+</script>
+
+</body>
+</html>
+
+       
